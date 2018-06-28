@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 
 module.exports = {
-    entry: './ex2/index.js',
+    entry: './ex4/index.js',
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -9,5 +9,16 @@ module.exports = {
     devServer: {
         port: 5555,
         contentBase: './public'
+    },
+    module: {
+        rules: [{
+            test: /.js?$/,
+            loader: 'babel-loader',
+            exclude: '/node_modules/0',
+            query: {
+                presets: ['es2015'],
+                plugins: ['transform-object-rest-spread']
+            }
+        }]
     }
 }
