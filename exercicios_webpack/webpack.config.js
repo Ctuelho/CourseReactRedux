@@ -1,7 +1,8 @@
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-    entry: './ex4/index.js',
+    entry: './ex6_loading_css/index.js',
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -10,15 +11,26 @@ module.exports = {
         port: 5555,
         contentBase: './public'
     },
-    module: {
-        rules: [{
-            test: /.js?$/,
-            loader: 'babel-loader',
-            exclude: '/node_modules/0',
-            query: {
-                presets: ['es2015'],
-                plugins: ['transform-object-rest-spread']
+    // plugins: [
+    //     new ExtractTextPlugin('app.css')
+    // ],
+    module: 
+    {
+        rules: 
+        [
+            {
+                test: /.js?$/,
+                loader: 'babel-loader',
+                exclude: '/node_modules/',
+                query: {
+                    presets: ['es2015', 'react'],
+                    plugins: ['transform-object-rest-spread']
+                }
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
             }
-        }]
+        ]
     }
 }
