@@ -1,14 +1,12 @@
 const webpack = require('webpack')
 
 module.exports = {
-    entry: './ex6_loading_css/index.js',
-    output: 
-    {
+    entry: './ex1/index.jsx',
+    output: {
         path: __dirname + '/public',
-        filename: './bundle.js'
+        filename: 'bundle.js'
     },
-    devServer: 
-    {
+    devServer: {
         port: 5555,
         contentBase: './public'
     },
@@ -17,12 +15,12 @@ module.exports = {
         rules: 
         [
             {
-                test: /.js?$/,
+                test: /.jsx?$/,
                 exclude: '/node_modules/',
                 use: {
                     loader: 'babel-loader',
                     options:{
-                        presets: ['es2015', 'react'],
+                        presets: ['env', 'react'],
                         plugins: ['transform-object-rest-spread']
                     } 
                 }
