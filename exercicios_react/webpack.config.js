@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 
 module.exports = {
-    entry: './ex1/index.jsx',
+    entry: './ex2/index.jsx',
     output: {
         path: __dirname + '/public',
         filename: 'bundle.js'
@@ -9,6 +9,9 @@ module.exports = {
     devServer: {
         port: 5555,
         contentBase: './public'
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
     },
     module: 
     {
