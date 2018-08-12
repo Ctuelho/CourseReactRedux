@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 
 module.exports = {
-    entry: './ex5-component-tree/index.jsx',
+    entry: './ex6-props-children/index.jsx',
     output: {
         path: __dirname + '/public',
         filename: 'bundle.js'
